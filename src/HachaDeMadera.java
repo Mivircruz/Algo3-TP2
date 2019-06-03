@@ -10,4 +10,9 @@ public class HachaDeMadera {
     public int getFuerza(){
         return this.fuerza;
     }
+
+    public void golpear(Madera madera){
+        madera.recibirGolpe();
+
+    }
 }
