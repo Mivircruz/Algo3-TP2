@@ -1,12 +1,24 @@
-public class Piedra {
+public class Piedra extends Material{
 
-    private int durabilidad = 30;
-
-    public int durabilidad() {
-        return durabilidad;
+    public Piedra(){
+        super();
+        durabilidad = 30;
+        puedeRomperMaterial = new Pico(new Madera());
     }
 
-    public void recibirGolpe(){
-        durabilidad -= 2;
+    @Override
+    public int durabilidadEnHerramienta(){
+        return 200;
     }
+
+    @Override
+    public int fuerzaEnHacha(){
+        return 2;
+    }
+
+    @Override
+    public int fuerzaEnPico(){
+        return 5;
+    }
+
 }

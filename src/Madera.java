@@ -1,12 +1,24 @@
-public class Madera {
+public class Madera extends Material{
 
-    private int durabilidad = 10;
-
-    public int durabilidad() {
-        return durabilidad;
+    public Madera(){
+        super();
+        durabilidad = 10;
+        puedeRomperMaterial = new Hacha(new Piedra());
     }
 
-    public void recibirGolpe(){
-        durabilidad -= 2;
+    @Override
+    public int durabilidadEnHerramienta(){
+        return 100;
     }
+
+    @Override
+    public int fuerzaEnHacha(){
+        return 2;
+    }
+
+    @Override
+    public int fuerzaEnPico(){
+        return 4;
+    }
+
 }

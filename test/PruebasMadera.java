@@ -6,7 +6,7 @@ public class PruebasMadera {
     @Test
     public void test01MaderaSeGolpeaConHachaDeMaderaYReduceSuDurabilidad(){
         Madera bloqueMadera = new Madera();
-        HachaDeMadera hachaMadera = new HachaDeMadera();
+        Hacha hachaMadera = new Hacha(new Madera());
 
         int durabilidadBloqueMadera = bloqueMadera.durabilidad();
         hachaMadera.golpear(bloqueMadera);

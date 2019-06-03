@@ -2,7 +2,7 @@ import org.junit.Test;
 import org.junit.Assert;
 
 public class PruebasMetal {
-
+/*
     @Test
     public void MetalSeGolpeaConPicoDeMaderaNoReduceSuDurabilidad(){
         Metal bloqueMetal = new Metal();
@@ -14,4 +14,6 @@ public class PruebasMetal {
         Assert.assertEquals(bloqueMetal.durabilidad(),durabilidadBloqueMetal);
 
     }
+
+ */
 }
