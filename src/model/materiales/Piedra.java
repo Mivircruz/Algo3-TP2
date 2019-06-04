@@ -12,7 +12,7 @@ public class Piedra extends Material {
 
     @Override
     public void esGolpeadoPor(Pico pico) {
-        pico.restarDurabilidad();
+        pico.restarDurabilidad(this);
         durabilidad -= pico.fuerza();
     }
 
