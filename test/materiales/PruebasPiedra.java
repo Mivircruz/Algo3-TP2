@@ -1,3 +1,8 @@
+package materiales;
+
+import model.herramientas.Hacha;
+import model.materiales.Madera;
+import model.materiales.Piedra;
 import org.junit.Test;
 import org.junit.Assert;
 
@@ -24,16 +29,5 @@ public class PruebasPiedra {
 
         Assert.assertEquals(bloquePiedra.durabilidad(), durabilidadBloquePiedra);
     }
-/*
-    @Test
-    public void PiedraSeGolpeaConHachaDeMetalNoReduceSuDurabilidad() {
-        Piedra bloquePiedra = new Piedra();
-        HachaMetal hachaDeMetal = new HachaMetal();
-        int durabilidadBloquePiedra = bloquePiedra.durabilidad();
 
-        hachaDeMetal.usar(bloquePiedra);
-
-        Assert.assertEquals(bloquePiedra.durabilidad(), durabilidadBloquePiedra);
-    }
- */
 }

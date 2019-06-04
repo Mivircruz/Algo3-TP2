@@ -1,3 +1,5 @@
+package materiales;
+
 import org.junit.Test;
 import org.junit.Assert;
 
@@ -5,7 +7,7 @@ public class PruebasMetal {
 /*
     @Test
     public void MetalSeGolpeaConPicoDeMaderaNoReduceSuDurabilidad(){
-        Metal bloqueMetal = new Metal();
+        model.materiales.Metal bloqueMetal = new model.materiales.Metal();
         PicoMadera picoDeMadera = new PicoMadera();
         int durabilidadBloqueMetal = bloqueMetal.durabilidad();
 
