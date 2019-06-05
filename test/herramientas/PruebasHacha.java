@@ -99,10 +99,10 @@ public class PruebasHacha {
         Hacha hachaPiedra = new Hacha(new Piedra());
 
         int durabilidadHacha = hachaPiedra.durabilidad();
-        int fuerzaHachaMadera = hachaPiedra.fuerza();
+        int fuerzaHachaPiedra = hachaPiedra.fuerza();
         hachaPiedra.golpear(bloquePiedra);
 
-        Assert.assertEquals(hachaPiedra.durabilidad(),durabilidadHacha - fuerzaHachaMadera);
+        Assert.assertEquals(hachaPiedra.durabilidad(),durabilidadHacha - fuerzaHachaPiedra);
     }
 
     @Test
@@ -117,4 +117,39 @@ public class PruebasHacha {
         Assert.assertEquals(hachaMetal.durabilidad(),durabilidadHacha - fuerzaHachaMadera / 2);
     }
 
+    @Test
+    public void test13HachaMaderaGolpeaMetalYPierdeDurabilidad() {
+        Metal bloqueMetal = new Metal();
+        Hacha hachaMadera = new Hacha(new Madera());
+
+        int durabilidadHacha = hachaMadera.durabilidad();
+        int fuerzaHachaMadera = hachaMadera.fuerza();
+        hachaMadera.golpear(bloqueMetal);
+
+        Assert.assertEquals(hachaMadera.durabilidad(),durabilidadHacha - fuerzaHachaMadera);
+    }
+
+    @Test
+    public void test14HachaPiedraGolpeaMetalYPierdeDurabilidad() {
+        Metal bloqueMetal = new Metal();
+        Hacha hachaPiedra = new Hacha(new Piedra());
+
+        int durabilidadHacha = hachaPiedra.durabilidad();
+        int fuerzaHachaPiedra = hachaPiedra.fuerza();
+        hachaPiedra.golpear(bloqueMetal);
+
+        Assert.assertEquals(hachaPiedra.durabilidad(),durabilidadHacha - fuerzaHachaPiedra);
+    }
+
+    @Test
+    public void test15HachaMetalGolpeaMetalYPierdeDurabilidad() {
+        Metal bloqueMetal = new Metal();
+        Hacha hachaMetal = new Hacha(new Metal());
+
+        int durabilidadHacha = hachaMetal.durabilidad();
+        int fuerzaHachaMadera = hachaMetal.fuerza();
+        hachaMetal.golpear(bloqueMetal);
+
+        Assert.assertEquals(hachaMetal.durabilidad(),durabilidadHacha - fuerzaHachaMadera / 2);
+    }
 }
