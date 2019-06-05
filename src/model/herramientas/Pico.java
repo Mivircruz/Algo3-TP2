@@ -23,6 +23,7 @@ public class Pico extends HerramientaConMaterial {
 
     @Override
     public void restarDurabilidad(Metal metal) {
+        metal.vs(material, this);
         //TODO, meter un contador. Posiblemente habria que implementar una clase nueva "desgaste" para que se encargue de eso.
     }
 

@@ -14,6 +14,10 @@ public abstract class HerramientaConMaterial extends Herramienta{
         material.restarDurabilidad(this);
     }
 
+    public Material material() {
+        return material;
+    }
+
     public abstract void restarDurabilidad(Madera madera);
     public abstract void restarDurabilidad(Metal metal);
     public abstract void restarDurabilidad(Piedra piedra);

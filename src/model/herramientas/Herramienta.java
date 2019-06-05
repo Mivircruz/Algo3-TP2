@@ -18,5 +18,8 @@ public abstract class Herramienta {
 
     public abstract void restarDurabilidad();
     public abstract void golpear(Material material);
+    //public abstract void golpear(Madera madera);
+    //public abstract void golpear(Piedra piedra);
+    //public abstract void golpear(Metal metal);
 
 }

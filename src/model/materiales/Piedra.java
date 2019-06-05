@@ -50,4 +50,24 @@ public class Piedra extends Material {
     public int fuerzaEn(Pico pico) {
         return 4;
     }
+
+    @Override
+    public void vs(Material material, Herramienta herramienta) {
+
+    }
+
+    @Override
+    public void vs(Madera madera, Herramienta herramienta) {
+
+    }
+
+    @Override
+    public void vs(Piedra piedra, Herramienta herramienta) {
+
+    }
+
+    @Override
+    public void vs(Metal metal, Herramienta herramienta) {
+
+    }
 }

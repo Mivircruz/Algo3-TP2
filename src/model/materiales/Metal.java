@@ -14,13 +14,14 @@ public class Metal extends Material {
     }
 
     @Override
-    public void esGolpeadoPor(Hacha hacha) {
-        hacha.restarDurabilidad();
+    public void esGolpeadoPor(Pico pico) {
+        pico.restarDurabilidad();
+        vs(pico.material(), pico);
     }
 
     @Override
-    public void esGolpeadoPor(Pico pico) {
-        pico.restarDurabilidad();
+    public void esGolpeadoPor(Hacha hacha) {
+        hacha.restarDurabilidad();
     }
 
     @Override
@@ -46,5 +47,25 @@ public class Metal extends Material {
     @Override
     public int fuerzaEn(Pico pico) {
         return 12;
+    }
+
+    @Override
+    public void vs(Material material, Herramienta herramienta) {
+        material.vs(this, herramienta);
+    }
+
+    @Override
+    public void vs(Madera madera, Herramienta herramienta) {
+        //no es afectado.
+    }
+
+    @Override
+    public void vs(Piedra piedra, Herramienta herramienta) {
+        piedra.restarDurabilidad(herramienta.fuerza());
+    }
+
+    @Override
+    public void vs(Metal metal, Herramienta herramienta) {
+        metal.restarDurabilidad(herramienta.fuerza());
     }
 }

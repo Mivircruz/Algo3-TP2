@@ -82,5 +82,4 @@ public class PruebasMetal {
         Assert.assertEquals(bloqueMetal.durabilidad(), durabilidadBloqueMetal - picoPiedra.fuerza());
     }
 
-
 }

@@ -1,9 +1,6 @@
 package model.materiales;
 
-import model.herramientas.Hacha;
-import model.herramientas.HerramientaConMaterial;
-import model.herramientas.Pico;
-import model.herramientas.PicoFino;
+import model.herramientas.*;
 
 public class Madera extends Material {
 
@@ -50,5 +47,25 @@ public class Madera extends Material {
     @Override
     public int fuerzaEn(Pico pico) {
         return 2;
+    }
+
+    @Override
+    public void vs(Material material, Herramienta herramienta) {
+
+    }
+
+    @Override
+    public void vs(Madera madera, Herramienta herramienta) {
+
+    }
+
+    @Override
+    public void vs(Piedra piedra, Herramienta herramienta) {
+
+    }
+
+    @Override
+    public void vs(Metal metal, Herramienta herramienta) {
+
     }
 }
