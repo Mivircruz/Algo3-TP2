@@ -1,8 +1,6 @@
 package model.materiales;
 
-import model.herramientas.Hacha;
-import model.herramientas.Herramienta;
-import model.herramientas.Pico;
+import model.herramientas.*;
 
 public class Piedra extends Material {
 
@@ -17,7 +15,7 @@ public class Piedra extends Material {
     }
 
     @Override
-    public void restarDurabilidad(Herramienta herramienta) {
+    public void restarDurabilidad(HerramientaConMaterial herramienta) {
         herramienta.restarDurabilidad(this);
     }
 
@@ -25,6 +23,13 @@ public class Piedra extends Material {
     public void esGolpeadoPor(Hacha hacha) {
         hacha.restarDurabilidad();
     }
+
+    @Override
+    public void esGolpeadoPor(PicoFino picoFino){
+        picoFino.restarDurabilidad();
+        durabilidad -= picoFino.fuerza();
+    }
+
 
     @Override
     public int durabilidadEn(Hacha hacha) {

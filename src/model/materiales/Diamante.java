@@ -1,30 +1,27 @@
 package model.materiales;
 
+
 import model.herramientas.Hacha;
 import model.herramientas.HerramientaConMaterial;
 import model.herramientas.Pico;
 import model.herramientas.PicoFino;
 
-public class Madera extends Material {
+public class Diamante extends Material {
 
-    public Madera() {
-        super(10);
+    public Diamante() {
+        super(100);
     }
 
-    @Override
-    public void esGolpeadoPor(Pico pico) {
-        pico.restarDurabilidad();
-    }
-
-    @Override
-    public void restarDurabilidad(HerramientaConMaterial herramienta) {
-        herramienta.restarDurabilidad(this);
-    }
 
     @Override
     public void esGolpeadoPor(Hacha hacha) {
         hacha.restarDurabilidad();
-        durabilidad -= hacha.fuerza();
+
+    }
+
+    @Override
+    public void esGolpeadoPor(Pico pico) {
+
     }
 
     @Override
@@ -35,22 +32,27 @@ public class Madera extends Material {
     }
 
     @Override
+    public void restarDurabilidad(HerramientaConMaterial herramientaConMaterial) {
+
+    }
+
+    @Override
     public int durabilidadEn(Hacha hacha) {
-        return 100;
+        return 0;
     }
 
     @Override
     public int fuerzaEn(Hacha hacha) {
-        return 2;
+        return 0;
     }
 
     @Override
     public int durabilidadEn(Pico pico) {
-        return 100;
+        return 0;
     }
 
     @Override
     public int fuerzaEn(Pico pico) {
-        return 2;
+        return 0;
     }
 }
