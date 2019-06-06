@@ -2,6 +2,7 @@ package materiales;
 
 import model.herramientas.Hacha;
 import model.herramientas.Pico;
+import model.herramientas.PicoFino;
 import model.materiales.Madera;
 import model.materiales.Metal;
 import model.materiales.Piedra;
@@ -80,6 +81,17 @@ public class PruebasMetal {
         picoPiedra.golpear(bloqueMetal);
 
         Assert.assertEquals(bloqueMetal.durabilidad(), durabilidadBloqueMetal - picoPiedra.fuerza());
+    }
+
+    @Test
+    public void test08MetalSeGolpeaConPicoFinoYSeReduceSuDurabilidad() {
+        Metal bloqueMetal= new Metal();
+        PicoFino picoFino = new PicoFino();
+
+        int durabilidadBloqueMadera = bloqueMetal.durabilidad();
+        picoFino.golpear(bloqueMetal);
+
+        Assert.assertEquals(bloqueMetal.durabilidad(), durabilidadBloqueMadera - picoFino.fuerza());
     }
 
 }
