@@ -1,6 +1,9 @@
 package model.herramientas;
 
+import model.materiales.Madera;
 import model.materiales.Material;
+import model.materiales.Metal;
+import model.materiales.Piedra;
 
 public abstract class Herramienta {
 
@@ -16,10 +19,13 @@ public abstract class Herramienta {
         return durabilidad;
     }
 
+    public void golpear(Material material) {
+        material.esGolpeadoPor(this);
+    }
+
     public abstract void restarDurabilidad();
-    public abstract void golpear(Material material);
-    //public abstract void golpear(Madera madera);
-    //public abstract void golpear(Piedra piedra);
-    //public abstract void golpear(Metal metal);
+    public abstract void golpear(Madera madera);
+    public abstract void golpear(Piedra piedra);
+    public abstract void golpear(Metal metal);
 
 }

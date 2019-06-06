@@ -75,10 +75,10 @@ public class PruebasHacha {
         Hacha hachaMetal = new Hacha(new Metal());
 
         int durabilidadHacha = hachaMetal.durabilidad();
-        int fuerzaHachaMadera = hachaMetal.fuerza();
+        int fuerzaHachaMetal = hachaMetal.fuerza();
         hachaMetal.golpear(bloqueMadera);
 
-        Assert.assertEquals(hachaMetal.durabilidad(),durabilidadHacha - fuerzaHachaMadera / 2);
+        Assert.assertEquals(hachaMetal.durabilidad(), durabilidadHacha - fuerzaHachaMetal / 2);
     }
 
     @Test

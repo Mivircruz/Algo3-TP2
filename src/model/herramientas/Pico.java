@@ -4,10 +4,11 @@ import model.materiales.*;
 
 public class Pico extends HerramientaConMaterial {
 
-    public Pico(Material material){
+    public Pico(Material material) {
         super(material);
         durabilidad = material.durabilidadEn(this);
         fuerza = material.fuerzaEn(this);
+        estado = material.fabricar(this);
     }
 
     @Override
@@ -23,7 +24,6 @@ public class Pico extends HerramientaConMaterial {
 
     @Override
     public void restarDurabilidad(Metal metal) {
-        metal.vs(material, this);
         //TODO, meter un contador. Posiblemente habria que implementar una clase nueva "desgaste" para que se encargue de eso.
     }
 
@@ -32,4 +32,21 @@ public class Pico extends HerramientaConMaterial {
         material.esGolpeadoPor(this);
     }
 
+    @Override
+    public void golpear(Madera madera) {
+        material.restarDurabilidad(this);
+        estado.golpear(madera, fuerza);
+    }
+
+    @Override
+    public void golpear(Piedra piedra) {
+        material.restarDurabilidad(this);
+        estado.golpear(piedra, fuerza);
+    }
+
+    @Override
+    public void golpear(Metal metal) {
+        material.restarDurabilidad(this);
+        estado.golpear(metal, fuerza);
+    }
 }

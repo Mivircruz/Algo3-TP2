@@ -2,6 +2,7 @@ package model.materiales;
 
 
 import model.herramientas.*;
+import model.herramientas.Estados.EstadoHerramienta;
 
 //TODO, faltan las pruebas del diamante.
 public class Diamante extends Material {
@@ -12,9 +13,13 @@ public class Diamante extends Material {
 
 
     @Override
+    public void esGolpeadoPor(Herramienta herramienta) {
+        herramienta.golpear(this);
+    }
+
+    @Override
     public void esGolpeadoPor(Hacha hacha) {
         hacha.restarDurabilidad();
-
     }
 
     @Override
@@ -54,22 +59,13 @@ public class Diamante extends Material {
     }
 
     @Override
-    public void vs(Material material, Herramienta herramienta) {
-
+    public EstadoHerramienta fabricar(Pico pico) {
+        return null;
     }
 
     @Override
-    public void vs(Madera madera, Herramienta herramienta) {
-
+    public EstadoHerramienta fabricar(Hacha hacha) {
+        return null;
     }
 
-    @Override
-    public void vs(Piedra piedra, Herramienta herramienta) {
-
-    }
-
-    @Override
-    public void vs(Metal metal, Herramienta herramienta) {
-
-    }
 }

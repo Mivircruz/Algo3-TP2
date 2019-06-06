@@ -1,6 +1,9 @@
 package model.materiales;
 
 import model.herramientas.*;
+import model.herramientas.Estados.EstadoHerramienta;
+import model.herramientas.Estados.EstadosHacha.EstadoHachaMadera;
+import model.herramientas.Estados.EstadosPico.EstadoPicoMadera;
 
 public class Madera extends Material {
 
@@ -14,14 +17,20 @@ public class Madera extends Material {
     }
 
     @Override
+    public void esGolpeadoPor(Herramienta herramienta) {
+        herramienta.golpear(this);
+    }
+
+    @Override
     public void esGolpeadoPor(Hacha hacha) {
         hacha.restarDurabilidad();
-        durabilidad -= hacha.fuerza();
+        hacha.golpear(this);
     }
 
     @Override
     public void esGolpeadoPor(Pico pico) {
         pico.restarDurabilidad();
+        pico.golpear(this);
     }
 
     @Override
@@ -50,22 +59,13 @@ public class Madera extends Material {
     }
 
     @Override
-    public void vs(Material material, Herramienta herramienta) {
-
+    public EstadoHerramienta fabricar(Pico pico) {
+        return new EstadoPicoMadera();
     }
 
     @Override
-    public void vs(Madera madera, Herramienta herramienta) {
-
+    public EstadoHerramienta fabricar(Hacha hacha) {
+        return new EstadoHachaMadera();
     }
 
-    @Override
-    public void vs(Piedra piedra, Herramienta herramienta) {
-
-    }
-
-    @Override
-    public void vs(Metal metal, Herramienta herramienta) {
-
-    }
 }

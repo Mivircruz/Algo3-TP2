@@ -33,14 +33,14 @@ public class PruebasPiedra {
     }
 
     @Test
-    public void PiedraEsGolpeadaPorPicoDeMaderaYSiSeReduceSuDurabilidad() {
+    public void PiedraEsGolpeadaPorPicoDeMaderaYNoSeReduceSuDurabilidad() {
         Piedra bloquePiedra = new Piedra();
         Pico picoMadera = new Pico(new Madera());
         int durabilidadBloquePiedra = bloquePiedra.durabilidad();
 
         picoMadera.golpear(bloquePiedra);
 
-        Assert.assertEquals(bloquePiedra.durabilidad(), durabilidadBloquePiedra - picoMadera.fuerza());
+        Assert.assertEquals(bloquePiedra.durabilidad(), durabilidadBloquePiedra);
     }
 
     @Test

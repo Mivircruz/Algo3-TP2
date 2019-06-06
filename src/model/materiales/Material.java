@@ -1,6 +1,7 @@
 package model.materiales;
 
 import model.herramientas.*;
+import model.herramientas.Estados.EstadoHerramienta;
 
 public abstract class Material {
 
@@ -18,6 +19,7 @@ public abstract class Material {
         durabilidad -= daño;
     }
 
+    public abstract void esGolpeadoPor(Herramienta herramienta);
     public abstract void esGolpeadoPor(Hacha hacha);
     public abstract void esGolpeadoPor(Pico pico);
     public abstract void esGolpeadoPor(PicoFino picoFino);
@@ -28,8 +30,6 @@ public abstract class Material {
     public abstract int fuerzaEn(Hacha hacha);
     public abstract int durabilidadEn(Pico pico);
     public abstract int fuerzaEn(Pico pico);
-    public abstract void vs(Material material, Herramienta herramienta);
-    public abstract void vs(Madera madera, Herramienta herramienta);
-    public abstract void vs(Piedra piedra, Herramienta herramienta);
-    public abstract void vs(Metal metal, Herramienta herramienta);
+    public abstract EstadoHerramienta fabricar(Pico pico);
+    public abstract EstadoHerramienta fabricar(Hacha hacha);
 }
