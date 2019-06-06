@@ -11,16 +11,11 @@ public class PicoFino extends Herramienta {
 
     @Override
     public void restarDurabilidad() {
-        ;
-    }
-
-    public void restarDurabilidad(Diamante diamante){
-        durabilidad -= durabilidad*0.1;
+        durabilidad -= durabilidad * 0.1;
     }
 
     @Override
     public void golpear(Material material) {
         material.esGolpeadoPor(this);
-
     }
 }

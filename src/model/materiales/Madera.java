@@ -12,11 +12,6 @@ public class Madera extends Material {
     }
 
     @Override
-    public void esGolpeadoPor(Pico pico) {
-        pico.restarDurabilidad();
-    }
-
-    @Override
     public void restarDurabilidad(HerramientaConMaterial herramienta) {
         herramienta.restarDurabilidad(this);
     }
@@ -28,10 +23,13 @@ public class Madera extends Material {
     }
 
     @Override
-    public void esGolpeadoPor(PicoFino picoFino) {
-        picoFino.restarDurabilidad();
-        durabilidad -= picoFino.fuerza();
+    public void esGolpeadoPor(Pico pico) {
+        pico.restarDurabilidad();
+    }
 
+    @Override
+    public void esGolpeadoPor(PicoFino picoFino) {
+        durabilidad -= picoFino.fuerza();
     }
 
     @Override

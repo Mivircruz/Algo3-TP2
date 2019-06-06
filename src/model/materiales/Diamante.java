@@ -5,7 +5,7 @@ import model.herramientas.Hacha;
 import model.herramientas.HerramientaConMaterial;
 import model.herramientas.Pico;
 import model.herramientas.PicoFino;
-
+//TODO, faltan las pruebas del diamante.
 public class Diamante extends Material {
 
     public Diamante() {
@@ -21,14 +21,13 @@ public class Diamante extends Material {
 
     @Override
     public void esGolpeadoPor(Pico pico) {
-
+        pico.restarDurabilidad();
     }
 
     @Override
     public void esGolpeadoPor(PicoFino picoFino) {
         picoFino.restarDurabilidad();
         durabilidad -= picoFino.fuerza();
-
     }
 
     @Override

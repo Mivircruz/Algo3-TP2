@@ -9,11 +9,6 @@ public class Metal extends Material {
     }
 
     @Override
-    public void esGolpeadoPor(Pico pico) {
-        pico.restarDurabilidad();
-    }
-
-    @Override
     public void restarDurabilidad(HerramientaConMaterial herramienta) {
         herramienta.restarDurabilidad(this);
     }
@@ -24,8 +19,12 @@ public class Metal extends Material {
     }
 
     @Override
+    public void esGolpeadoPor(Pico pico) {
+        pico.restarDurabilidad();
+    }
+
+    @Override
     public void esGolpeadoPor(PicoFino picoFino){
-        picoFino.restarDurabilidad();
         durabilidad -= picoFino.fuerza();
     }
 

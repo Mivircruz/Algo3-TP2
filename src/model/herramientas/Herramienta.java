@@ -1,10 +1,6 @@
 package model.herramientas;
 
-import model.materiales.Madera;
 import model.materiales.Material;
-import model.materiales.Metal;
-import model.materiales.Piedra;
-import model.materiales.Diamante;
 
 public abstract class Herramienta {
 
