@@ -1,5 +1,6 @@
 package model.herramientas;
 
+import model.herramientas.desgastes.Desgaste;
 import model.materiales.Madera;
 import model.materiales.Material;
 import model.materiales.Metal;
@@ -7,15 +8,15 @@ import model.materiales.Piedra;
 
 public abstract class Herramienta {
 
-    protected int durabilidad;
+    protected float durabilidad;
     protected int fuerza;
-
+    protected Desgaste desgaste;
 
     public int fuerza() {
         return fuerza;
     }
 
-    public int durabilidad() {
+    public float durabilidad() {
         return durabilidad;
     }
 
@@ -23,7 +24,10 @@ public abstract class Herramienta {
         material.esGolpeadoPor(this);
     }
 
-    public abstract void restarDurabilidad();
+    public void restarDurabilidad() {
+        durabilidad = desgaste.desgastar(durabilidad, fuerza);
+    }
+
     public abstract void golpear(Madera madera);
     public abstract void golpear(Piedra piedra);
     public abstract void golpear(Metal metal);

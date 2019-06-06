@@ -4,16 +4,14 @@ import model.herramientas.*;
 import model.herramientas.Estados.EstadoHerramienta;
 import model.herramientas.Estados.EstadosHacha.EstadoHachaPiedra;
 import model.herramientas.Estados.EstadosPico.EstadoPicoPiedra;
+import model.herramientas.desgastes.Desgaste;
+import model.herramientas.desgastes.DesgastePorDivision;
+import model.herramientas.desgastes.DesgastePorFuerza;
 
 public class Piedra extends Material {
 
     public Piedra(){
         super(30);
-    }
-
-    @Override
-    public void restarDurabilidad(HerramientaConMaterial herramienta) {
-        herramienta.restarDurabilidad(this);
     }
 
     @Override
@@ -65,5 +63,15 @@ public class Piedra extends Material {
     @Override
     public EstadoHerramienta fabricar(Hacha hacha) {
         return new EstadoHachaPiedra();
+    }
+
+    @Override
+    public Desgaste tipoDeDesgaste(Pico pico) {
+        return new DesgastePorDivision(1.5f);
+    }
+
+    @Override
+    public Desgaste tipoDeDesgaste(Hacha hacha) {
+        return new DesgastePorFuerza();
     }
 }

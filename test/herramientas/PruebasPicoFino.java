@@ -10,10 +10,13 @@ import org.junit.Test;
 
 public class PruebasPicoFino {
 
+    private static final double RANGO_BASE = 0.1;
+
+
     @Test
     public void test01DurabilidadInicialEs1000() {
         PicoFino picoFino = new PicoFino();
-        Assert.assertEquals(1000, picoFino.durabilidad());
+        Assert.assertEquals(1000, picoFino.durabilidad(), RANGO_BASE);
     }
 
 
@@ -28,7 +31,7 @@ public class PruebasPicoFino {
         PicoFino picoFino = new PicoFino();
         Diamante diamante = new Diamante();
         picoFino.golpear(diamante);
-        Assert.assertEquals(900, picoFino.durabilidad());
+        Assert.assertEquals(900, picoFino.durabilidad(), RANGO_BASE);
     }
 
     @Test
@@ -36,7 +39,7 @@ public class PruebasPicoFino {
         PicoFino picoFino = new PicoFino();
         Madera madera = new Madera();
         picoFino.golpear(madera);
-        Assert.assertEquals(1000, picoFino.durabilidad());
+        Assert.assertEquals(1000, picoFino.durabilidad(), RANGO_BASE);
 
     }
 
@@ -45,7 +48,7 @@ public class PruebasPicoFino {
         PicoFino picoFino = new PicoFino();
         Metal metal = new Metal();
         picoFino.golpear(metal);
-        Assert.assertEquals(1000, picoFino.durabilidad());
+        Assert.assertEquals(1000, picoFino.durabilidad(), RANGO_BASE);
 
     }
 
@@ -54,7 +57,7 @@ public class PruebasPicoFino {
         PicoFino picoFino = new PicoFino();
         Piedra piedra = new Piedra();
         picoFino.golpear(piedra);
-        Assert.assertEquals(1000, picoFino.durabilidad());
+        Assert.assertEquals(1000, picoFino.durabilidad(), RANGO_BASE);
     }
 
 }

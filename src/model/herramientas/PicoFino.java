@@ -1,5 +1,6 @@
 package model.herramientas;
 
+import model.herramientas.desgastes.DesgastePorMultiplicacion;
 import model.materiales.*;
 
 public class PicoFino extends Herramienta {
@@ -7,11 +8,7 @@ public class PicoFino extends Herramienta {
     public PicoFino(){
         durabilidad = 1000;
         fuerza = 20;
-    }
-
-    @Override
-    public void restarDurabilidad() {
-        durabilidad -= durabilidad * 0.1;
+        desgaste = new DesgastePorMultiplicacion(0.1f);
     }
 
     @Override

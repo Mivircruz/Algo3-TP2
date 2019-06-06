@@ -3,8 +3,8 @@ package model.materiales;
 
 import model.herramientas.*;
 import model.herramientas.Estados.EstadoHerramienta;
+import model.herramientas.desgastes.Desgaste;
 
-//TODO, faltan las pruebas del diamante.
 public class Diamante extends Material {
 
     public Diamante() {
@@ -34,11 +34,6 @@ public class Diamante extends Material {
     }
 
     @Override
-    public void restarDurabilidad(HerramientaConMaterial herramientaConMaterial) {
-
-    }
-
-    @Override
     public int durabilidadEn(Hacha hacha) {
         return 0;
     }
@@ -65,6 +60,16 @@ public class Diamante extends Material {
 
     @Override
     public EstadoHerramienta fabricar(Hacha hacha) {
+        return null;
+    }
+
+    @Override
+    public Desgaste tipoDeDesgaste(Pico pico) {
+        return null;
+    }
+
+    @Override
+    public Desgaste tipoDeDesgaste(Hacha hacha) {
         return null;
     }
 

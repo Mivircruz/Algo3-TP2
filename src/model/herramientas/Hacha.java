@@ -12,21 +12,7 @@ public class Hacha extends HerramientaConMaterial {
         durabilidad = material.durabilidadEn(this);
         fuerza = material.fuerzaEn(this);
         estado = material.fabricar(this);
-    }
-
-    @Override
-    public void restarDurabilidad(Madera madera) {
-        durabilidad -= fuerza;
-    }
-
-    @Override
-    public void restarDurabilidad(Piedra piedra) {
-        durabilidad -= fuerza;
-    }
-
-    @Override
-    public void restarDurabilidad(Metal metal) {
-        durabilidad -= (fuerza/2);
+        desgaste = material.tipoDeDesgaste(this);
     }
 
     @Override
@@ -36,19 +22,19 @@ public class Hacha extends HerramientaConMaterial {
 
     @Override
     public void golpear(Madera madera) {
-        material.restarDurabilidad(this);
+        restarDurabilidad();
         estado.golpear(madera, fuerza);
     }
 
     @Override
     public void golpear(Piedra piedra) {
-        material.restarDurabilidad(this);
+        restarDurabilidad();
         estado.golpear(piedra, fuerza);
     }
 
     @Override
     public void golpear(Metal metal) {
-        material.restarDurabilidad(this);
+        restarDurabilidad();
         estado.golpear(metal, fuerza);
     }
 

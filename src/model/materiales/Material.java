@@ -2,6 +2,7 @@ package model.materiales;
 
 import model.herramientas.*;
 import model.herramientas.Estados.EstadoHerramienta;
+import model.herramientas.desgastes.Desgaste;
 
 public abstract class Material {
 
@@ -25,11 +26,12 @@ public abstract class Material {
     public abstract void esGolpeadoPor(PicoFino picoFino);
 
     //Abstractos
-    public abstract void restarDurabilidad(HerramientaConMaterial herramientaConMaterial);
     public abstract int durabilidadEn(Hacha hacha);
     public abstract int fuerzaEn(Hacha hacha);
     public abstract int durabilidadEn(Pico pico);
     public abstract int fuerzaEn(Pico pico);
     public abstract EstadoHerramienta fabricar(Pico pico);
     public abstract EstadoHerramienta fabricar(Hacha hacha);
+    public abstract Desgaste tipoDeDesgaste(Pico pico);
+    public abstract Desgaste tipoDeDesgaste(Hacha hacha);
 }

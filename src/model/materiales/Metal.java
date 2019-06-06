@@ -4,16 +4,14 @@ import model.herramientas.*;
 import model.herramientas.Estados.EstadoHerramienta;
 import model.herramientas.Estados.EstadosHacha.EstadoHachaMetal;
 import model.herramientas.Estados.EstadosPico.EstadoPicoMetal;
+import model.herramientas.desgastes.Desgaste;
+import model.herramientas.desgastes.DesgastePorCantidadDeUsos;
+import model.herramientas.desgastes.DesgastePorDivision;
 
 public class Metal extends Material {
 
     public Metal() {
         super(50);
-    }
-
-    @Override
-    public void restarDurabilidad(HerramientaConMaterial herramienta) {
-        herramienta.restarDurabilidad(this);
     }
 
     @Override
@@ -23,13 +21,11 @@ public class Metal extends Material {
 
     @Override
     public void esGolpeadoPor(Pico pico) {
-        pico.restarDurabilidad();
         pico.golpear(this);
     }
 
     @Override
     public void esGolpeadoPor(Hacha hacha) {
-        hacha.restarDurabilidad();
         hacha.golpear(this);
     }
 
@@ -66,6 +62,16 @@ public class Metal extends Material {
     @Override
     public EstadoHerramienta fabricar(Hacha hacha) {
         return new EstadoHachaMetal();
+    }
+
+    @Override
+    public Desgaste tipoDeDesgaste(Pico pico) {
+        return new DesgastePorCantidadDeUsos(10);
+    }
+
+    @Override
+    public Desgaste tipoDeDesgaste(Hacha hacha) {
+        return new DesgastePorDivision(2);
     }
 
 }
