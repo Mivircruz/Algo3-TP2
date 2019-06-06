@@ -220,4 +220,42 @@ public class PruebasPico {
         Assert.assertEquals(0, picoMetal.durabilidad());
     }
 
+    @Test
+    public void test18PicoPiedraGolpeaMaderaYSeReduceSuDurabilidad() {
+
+        Madera bloqueMadera = new Madera();
+        Pico picoPiedra = new Pico(new Piedra());
+
+        double durabilidadPico = picoPiedra.durabilidad();
+        int fuerzaPicoPiedra = picoPiedra.fuerza();
+        picoPiedra.golpear(bloqueMadera);
+
+        Assert.assertEquals(picoPiedra.durabilidad(),durabilidadPico - fuerzaPicoPiedra);
+    }
+
+    @Test
+    public void test19PicoPiedraGolpeaPiedraYSeReduceSuDurabilidad() {
+
+        Piedra bloquePiedra = new Piedra();
+        Pico picoPiedra = new Pico(new Piedra());
+
+        double durabilidadPico = picoPiedra.durabilidad();
+        int fuerzaPicoPiedra = picoPiedra.fuerza();
+        picoPiedra.golpear(bloquePiedra);
+
+        Assert.assertEquals(picoPiedra.durabilidad(),durabilidadPico - fuerzaPicoPiedra);
+    }
+
+    @Test
+    public void test20PicoPiedraGolpeaMetalYSeReduceSuDurabilidad() {
+
+        Metal bloqueMetal = new Metal();
+        Pico picoPiedra = new Pico(new Piedra());
+
+        double durabilidadPico = picoPiedra.durabilidad();
+        int fuerzaPicoPiedra = picoPiedra.fuerza();
+        picoPiedra.golpear(bloqueMetal);
+
+        Assert.assertEquals(picoPiedra.durabilidad(),durabilidadPico - fuerzaPicoPiedra);
+    }
 }
