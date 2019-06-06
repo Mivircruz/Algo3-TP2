@@ -7,7 +7,11 @@ import model.materiales.Material;
 
 public class Jugador {
 
-    protected Herramienta herramientaEquipada = new Hacha(new Madera());
+    protected Herramienta herramientaEquipada;
+    
+    public Jugador () {
+        this.herramientaEquipada = new Hacha (new Madera ());
+    }
 
     public Herramienta obtenerHerramientaEquipada() {
         return herramientaEquipada;
