@@ -14,7 +14,7 @@ public class EstadoPicoMadera implements EstadoHerramienta {
 
     @Override
     public void golpear(Piedra piedra, int fuerza) {
-        //nada para hacer
+        piedra.restarDurabilidad(fuerza);
     }
 
     @Override
