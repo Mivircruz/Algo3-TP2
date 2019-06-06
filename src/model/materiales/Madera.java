@@ -1,9 +1,9 @@
 package model.materiales;
 
-import model.herramientas.Hacha;
-import model.herramientas.HerramientaConMaterial;
-import model.herramientas.Pico;
-import model.herramientas.PicoFino;
+import model.herramientas.*;
+import model.herramientas.Estados.EstadoHerramienta;
+import model.herramientas.Estados.EstadosHacha.EstadoHachaMadera;
+import model.herramientas.Estados.EstadosPico.EstadoPicoMadera;
 
 public class Madera extends Material {
 
@@ -17,14 +17,20 @@ public class Madera extends Material {
     }
 
     @Override
+    public void esGolpeadoPor(Herramienta herramienta) {
+        herramienta.golpear(this);
+    }
+
+    @Override
     public void esGolpeadoPor(Hacha hacha) {
         hacha.restarDurabilidad();
-        durabilidad -= hacha.fuerza();
+        hacha.golpear(this);
     }
 
     @Override
     public void esGolpeadoPor(Pico pico) {
         pico.restarDurabilidad();
+        pico.golpear(this);
     }
 
     @Override
@@ -51,4 +57,15 @@ public class Madera extends Material {
     public int fuerzaEn(Pico pico) {
         return 2;
     }
+
+    @Override
+    public EstadoHerramienta fabricar(Pico pico) {
+        return new EstadoPicoMadera();
+    }
+
+    @Override
+    public EstadoHerramienta fabricar(Hacha hacha) {
+        return new EstadoHachaMadera();
+    }
+
 }

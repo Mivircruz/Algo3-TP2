@@ -11,6 +11,7 @@ public class Hacha extends HerramientaConMaterial {
         super(material);
         durabilidad = material.durabilidadEn(this);
         fuerza = material.fuerzaEn(this);
+        estado = material.fabricar(this);
     }
 
     @Override
@@ -31,6 +32,24 @@ public class Hacha extends HerramientaConMaterial {
     @Override
     public void golpear(Material material) {
         material.esGolpeadoPor(this);
+    }
+
+    @Override
+    public void golpear(Madera madera) {
+        material.restarDurabilidad(this);
+        estado.golpear(madera, fuerza);
+    }
+
+    @Override
+    public void golpear(Piedra piedra) {
+        material.restarDurabilidad(this);
+        estado.golpear(piedra, fuerza);
+    }
+
+    @Override
+    public void golpear(Metal metal) {
+        material.restarDurabilidad(this);
+        estado.golpear(metal, fuerza);
     }
 
 }

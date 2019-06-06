@@ -33,7 +33,7 @@ public class PruebasPiedra {
     }
 
     @Test
-    public void PiedraEsGolpeadaPorPicoDeMaderaYSiSeReduceSuDurabilidad() {
+    public void PiedraEsGolpeadaPorPicoDeMaderaYSeReduceSuDurabilidad() {
         Piedra bloquePiedra = new Piedra();
         Pico picoMadera = new Pico(new Madera());
         int durabilidadBloquePiedra = bloquePiedra.durabilidad();
