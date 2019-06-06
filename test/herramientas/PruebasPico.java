@@ -232,7 +232,7 @@ public class PruebasPico {
         int fuerzaPicoPiedra = picoPiedra.fuerza();
         picoPiedra.golpear(bloqueMadera);
 
-        Assert.assertEquals(picoPiedra.durabilidad(),durabilidadPico - fuerzaPicoPiedra);
+        Assert.assertEquals(picoPiedra.durabilidad(),durabilidadPico - fuerzaPicoPiedra / 1.5, RANGO_BASE);
     }
 
     @Test
@@ -245,7 +245,7 @@ public class PruebasPico {
         int fuerzaPicoPiedra = picoPiedra.fuerza();
         picoPiedra.golpear(bloquePiedra);
 
-        Assert.assertEquals(picoPiedra.durabilidad(),durabilidadPico - fuerzaPicoPiedra);
+        Assert.assertEquals(picoPiedra.durabilidad(),durabilidadPico - fuerzaPicoPiedra / 1.5, RANGO_BASE);
     }
 
     @Test
@@ -258,6 +258,6 @@ public class PruebasPico {
         int fuerzaPicoPiedra = picoPiedra.fuerza();
         picoPiedra.golpear(bloqueMetal);
 
-        Assert.assertEquals(picoPiedra.durabilidad(),durabilidadPico - fuerzaPicoPiedra);
+        Assert.assertEquals(picoPiedra.durabilidad(),durabilidadPico - fuerzaPicoPiedra / 1.5, RANGO_BASE);
     }
 }
