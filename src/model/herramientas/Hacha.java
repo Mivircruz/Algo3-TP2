@@ -5,7 +5,7 @@ import model.materiales.Material;
 import model.materiales.Metal;
 import model.materiales.Piedra;
 
-public class Hacha extends Herramienta {
+public class Hacha extends HerramientaConMaterial {
 
     public Hacha(Material material) {
         super(material);

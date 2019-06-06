@@ -1,11 +1,8 @@
 package model.herramientas;
 
-import model.materiales.Madera;
-import model.materiales.Material;
-import model.materiales.Metal;
-import model.materiales.Piedra;
+import model.materiales.*;
 
-public class Pico extends Herramienta {
+public class Pico extends HerramientaConMaterial {
 
     public Pico(Material material){
         super(material);
@@ -22,6 +19,7 @@ public class Pico extends Herramienta {
     public void restarDurabilidad(Piedra piedra) {
         durabilidad -= (fuerza/1.5);
     }
+
 
     @Override
     public void restarDurabilidad(Metal metal) {
