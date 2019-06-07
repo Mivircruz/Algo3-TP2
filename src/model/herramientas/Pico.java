@@ -9,22 +9,7 @@ public class Pico extends HerramientaConMaterial {
         durabilidad = material.durabilidadEn(this);
         fuerza = material.fuerzaEn(this);
         estado = material.fabricar(this);
-    }
-
-    @Override
-    public void restarDurabilidad(Madera madera) {
-        durabilidad -= fuerza;
-    }
-
-    @Override
-    public void restarDurabilidad(Piedra piedra) {
-        durabilidad -= (fuerza/1.5);
-    }
-
-
-    @Override
-    public void restarDurabilidad(Metal metal) {
-        //TODO, meter un contador. Posiblemente habria que implementar una clase nueva "desgaste" para que se encargue de eso.
+        desgaste = material.tipoDeDesgaste(this);
     }
 
     @Override
@@ -34,19 +19,19 @@ public class Pico extends HerramientaConMaterial {
 
     @Override
     public void golpear(Madera madera) {
-        material.restarDurabilidad(this);
+        restarDurabilidad();
         estado.golpear(madera, fuerza);
     }
 
     @Override
     public void golpear(Piedra piedra) {
-        material.restarDurabilidad(this);
+        restarDurabilidad();
         estado.golpear(piedra, fuerza);
     }
 
     @Override
     public void golpear(Metal metal) {
-        material.restarDurabilidad(this);
+        restarDurabilidad();
         estado.golpear(metal, fuerza);
     }
 }

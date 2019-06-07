@@ -9,10 +9,12 @@ import org.junit.Test;
 
 public class PruebasPico {
 
+    private static final double RANGO_BASE = 0.1;
+
     @Test
     public void test01DurabilidadInicialPicoDeMaderaEs100() {
         Pico pico = new Pico(new Madera());
-        Assert.assertEquals(100, pico.durabilidad());
+        Assert.assertEquals(100, pico.durabilidad(), RANGO_BASE);
     }
 
     @Test
@@ -24,7 +26,7 @@ public class PruebasPico {
     @Test
     public void test03DurabilidadInicialPicoDePiedraEs200() {
         Pico pico = new Pico(new Piedra());
-        Assert.assertEquals(200, pico.durabilidad());
+        Assert.assertEquals(200, pico.durabilidad(), RANGO_BASE);
     }
 
     @Test
@@ -36,7 +38,7 @@ public class PruebasPico {
     @Test
     public void test05DurabilidadInicialPicoDeMetalEs400() {
         Pico pico = new Pico(new Metal());
-        Assert.assertEquals(400, pico.durabilidad());
+        Assert.assertEquals(400, pico.durabilidad(), RANGO_BASE);
     }
 
     @Test
@@ -50,11 +52,11 @@ public class PruebasPico {
         Madera bloqueMadera = new Madera();
         Pico picoMadera = new Pico(new Madera());
 
-        int durabilidadPico = picoMadera.durabilidad();
+        float durabilidadPico = picoMadera.durabilidad();
         int fuerzaPicoMadera = picoMadera.fuerza();
         picoMadera.golpear(bloqueMadera);
 
-        Assert.assertEquals(picoMadera.durabilidad(),durabilidadPico - fuerzaPicoMadera);
+        Assert.assertEquals(picoMadera.durabilidad(),durabilidadPico - fuerzaPicoMadera, RANGO_BASE);
     }
 
     @Test
@@ -62,11 +64,11 @@ public class PruebasPico {
         Piedra bloquePiedra = new Piedra();
         Pico picoMadera = new Pico(new Madera());
 
-        int durabilidadPico = picoMadera.durabilidad();
+        float durabilidadPico = picoMadera.durabilidad();
         int fuerzaPicoMadera = picoMadera.fuerza();
         picoMadera.golpear(bloquePiedra);
 
-        Assert.assertEquals(picoMadera.durabilidad(),durabilidadPico - fuerzaPicoMadera);
+        Assert.assertEquals(picoMadera.durabilidad(),durabilidadPico - fuerzaPicoMadera, RANGO_BASE);
     }
 
     @Test
@@ -74,11 +76,11 @@ public class PruebasPico {
         Metal bloqueMetal = new Metal();
         Pico picoMadera = new Pico(new Madera());
 
-        int durabilidadPico = picoMadera.durabilidad();
+        float durabilidadPico = picoMadera.durabilidad();
         int fuerzaPicoMadera = picoMadera.fuerza();
         picoMadera.golpear(bloqueMetal);
 
-        Assert.assertEquals(picoMadera.durabilidad(),durabilidadPico - fuerzaPicoMadera);
+        Assert.assertEquals(picoMadera.durabilidad(),durabilidadPico - fuerzaPicoMadera, RANGO_BASE);
     }
 
     @Test
@@ -86,10 +88,10 @@ public class PruebasPico {
         Madera bloqueMadera = new Madera();
         Pico picoMetal = new Pico(new Metal());
 
-        int durabilidadPico = picoMetal.durabilidad();
+        float durabilidadPico = picoMetal.durabilidad();
         picoMetal.golpear(bloqueMadera);
 
-        Assert.assertEquals(picoMetal.durabilidad(), durabilidadPico);
+        Assert.assertEquals(picoMetal.durabilidad(), durabilidadPico, RANGO_BASE);
     }
 
     @Test
@@ -97,7 +99,7 @@ public class PruebasPico {
         Madera bloqueMadera = new Madera();
         Pico picoMetal = new Pico(new Metal());
 
-        int durabilidadPico = picoMetal.durabilidad();
+        float durabilidadPico = picoMetal.durabilidad();
 
         picoMetal.golpear(bloqueMadera);
         picoMetal.golpear(bloqueMadera);
@@ -105,7 +107,7 @@ public class PruebasPico {
         picoMetal.golpear(bloqueMadera);
         picoMetal.golpear(bloqueMadera);
 
-        Assert.assertEquals(picoMetal.durabilidad(), durabilidadPico);
+        Assert.assertEquals(picoMetal.durabilidad(), durabilidadPico, RANGO_BASE);
     }
 
     @Test
@@ -113,10 +115,10 @@ public class PruebasPico {
         Metal bloqueMetal = new Metal();
         Pico picoMetal = new Pico(new Metal());
 
-        int durabilidadPico = picoMetal.durabilidad();
+        float durabilidadPico = picoMetal.durabilidad();
         picoMetal.golpear(bloqueMetal);
 
-        Assert.assertEquals(picoMetal.durabilidad(), durabilidadPico);
+        Assert.assertEquals(picoMetal.durabilidad(), durabilidadPico, RANGO_BASE);
     }
 
     @Test
@@ -124,7 +126,7 @@ public class PruebasPico {
         Metal bloqueMetal = new Metal();
         Pico picoMetal = new Pico(new Metal());
 
-        int durabilidadPico = picoMetal.durabilidad();
+        float durabilidadPico = picoMetal.durabilidad();
 
         picoMetal.golpear(bloqueMetal);
         picoMetal.golpear(bloqueMetal);
@@ -132,7 +134,7 @@ public class PruebasPico {
         picoMetal.golpear(bloqueMetal);
         picoMetal.golpear(bloqueMetal);
 
-        Assert.assertEquals(picoMetal.durabilidad(), durabilidadPico);
+        Assert.assertEquals(picoMetal.durabilidad(), durabilidadPico, RANGO_BASE);
     }
 
 
@@ -141,10 +143,10 @@ public class PruebasPico {
         Piedra bloquePiedra = new Piedra();
         Pico picoMetal = new Pico(new Metal());
 
-        int durabilidadPico = picoMetal.durabilidad();
+        float durabilidadPico = picoMetal.durabilidad();
         picoMetal.golpear(bloquePiedra);
 
-        Assert.assertEquals(picoMetal.durabilidad(), durabilidadPico);
+        Assert.assertEquals(picoMetal.durabilidad(), durabilidadPico, RANGO_BASE);
     }
 
     @Test
@@ -152,7 +154,7 @@ public class PruebasPico {
         Piedra bloquePiedra = new Piedra();
         Pico picoMetal = new Pico(new Metal());
 
-        int durabilidadPico = picoMetal.durabilidad();
+        float durabilidadPico = picoMetal.durabilidad();
 
         picoMetal.golpear(bloquePiedra);
         picoMetal.golpear(bloquePiedra);
@@ -160,7 +162,7 @@ public class PruebasPico {
         picoMetal.golpear(bloquePiedra);
         picoMetal.golpear(bloquePiedra);
 
-        Assert.assertEquals(picoMetal.durabilidad(), durabilidadPico);
+        Assert.assertEquals(picoMetal.durabilidad(), durabilidadPico, RANGO_BASE);
     }
 
     @Test
@@ -179,7 +181,7 @@ public class PruebasPico {
         picoMetal.golpear(bloqueMadera);
         picoMetal.golpear(bloqueMadera);
 
-        Assert.assertEquals(0, picoMetal.durabilidad());
+        Assert.assertEquals(0, picoMetal.durabilidad(), RANGO_BASE);
     }
 
     @Test
@@ -198,7 +200,7 @@ public class PruebasPico {
         picoMetal.golpear(bloquePiedra);
         picoMetal.golpear(bloquePiedra);
 
-        Assert.assertEquals(picoMetal.durabilidad(), 0);
+        Assert.assertEquals(picoMetal.durabilidad(), 0, RANGO_BASE);
     }
 
     @Test
@@ -217,7 +219,7 @@ public class PruebasPico {
         picoMetal.golpear(bloqueMetal);
         picoMetal.golpear(bloqueMetal);
 
-        Assert.assertEquals(0, picoMetal.durabilidad());
+        Assert.assertEquals(0, picoMetal.durabilidad(), RANGO_BASE);
     }
 
     @Test
@@ -230,7 +232,7 @@ public class PruebasPico {
         int fuerzaPicoPiedra = picoPiedra.fuerza();
         picoPiedra.golpear(bloqueMadera);
 
-        Assert.assertEquals(picoPiedra.durabilidad(),durabilidadPico - fuerzaPicoPiedra);
+        Assert.assertEquals(picoPiedra.durabilidad(),durabilidadPico - fuerzaPicoPiedra / 1.5, RANGO_BASE);
     }
 
     @Test
@@ -243,7 +245,7 @@ public class PruebasPico {
         int fuerzaPicoPiedra = picoPiedra.fuerza();
         picoPiedra.golpear(bloquePiedra);
 
-        Assert.assertEquals(picoPiedra.durabilidad(),durabilidadPico - fuerzaPicoPiedra);
+        Assert.assertEquals(picoPiedra.durabilidad(),durabilidadPico - fuerzaPicoPiedra / 1.5, RANGO_BASE);
     }
 
     @Test
@@ -256,6 +258,6 @@ public class PruebasPico {
         int fuerzaPicoPiedra = picoPiedra.fuerza();
         picoPiedra.golpear(bloqueMetal);
 
-        Assert.assertEquals(picoPiedra.durabilidad(),durabilidadPico - fuerzaPicoPiedra);
+        Assert.assertEquals(picoPiedra.durabilidad(),durabilidadPico - fuerzaPicoPiedra / 1.5, RANGO_BASE);
     }
 }

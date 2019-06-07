@@ -11,6 +11,9 @@ public class PruebasJugador {
     El objetivo de todas estas pruebas en su conjunto es probar que el jugador efectivamente comienza con un
     Hacha de madera equipada. Por ello se usa Herramienta en lugar de Hacha.
      */
+
+    private static final double RANGO_BASE = 0.1;
+
     @Test
     public void test01JugadorComienzaConHerramientaCuyaDurabilidadDeberiaSerDeUnHachaDeMadera() {
 
@@ -18,7 +21,7 @@ public class PruebasJugador {
         Herramienta herramienta = jugador.obtenerHerramientaEquipada();
         Hacha hachaMadera = new Hacha(new Madera());
 
-        Assert.assertEquals(herramienta.durabilidad(), hachaMadera.durabilidad());
+        Assert.assertEquals(herramienta.durabilidad(), hachaMadera.durabilidad(), RANGO_BASE);
     }
 
     @Test
@@ -38,11 +41,11 @@ public class PruebasJugador {
         Madera bloqueMadera = new Madera();
         Herramienta herramienta = jugador.obtenerHerramientaEquipada();
         Hacha hachaMadera = new Hacha(new Madera());
-        int durabilidadHerramienta = herramienta.durabilidad();
+        float durabilidadHerramienta = herramienta.durabilidad();
 
         jugador.usarHerramientaEquipadaSobre(bloqueMadera);
 
-        Assert.assertEquals(herramienta.durabilidad(), durabilidadHerramienta - hachaMadera.fuerza());
+        Assert.assertEquals(herramienta.durabilidad(), durabilidadHerramienta - hachaMadera.fuerza(), RANGO_BASE);
     }
 
     @Test
@@ -52,11 +55,11 @@ public class PruebasJugador {
         Piedra bloquePiedra = new Piedra();
         Herramienta herramienta = jugador.obtenerHerramientaEquipada();
         Hacha hachaMadera = new Hacha(new Madera());
-        int durabilidadHerramienta = herramienta.durabilidad();
+        float durabilidadHerramienta = herramienta.durabilidad();
 
         jugador.usarHerramientaEquipadaSobre(bloquePiedra);
 
-        Assert.assertEquals(herramienta.durabilidad(), durabilidadHerramienta - hachaMadera.fuerza());
+        Assert.assertEquals(herramienta.durabilidad(), durabilidadHerramienta - hachaMadera.fuerza(), RANGO_BASE);
     }
 
     @Test
@@ -66,11 +69,11 @@ public class PruebasJugador {
         Metal bloqueMetal = new Metal();
         Herramienta herramienta = jugador.obtenerHerramientaEquipada();
         Hacha hachaMadera = new Hacha(new Madera());
-        int durabilidadHerramienta = herramienta.durabilidad();
+        float durabilidadHerramienta = herramienta.durabilidad();
 
         jugador.usarHerramientaEquipadaSobre(bloqueMetal);
 
-        Assert.assertEquals(herramienta.durabilidad(), durabilidadHerramienta - hachaMadera.fuerza());
+        Assert.assertEquals(herramienta.durabilidad(), durabilidadHerramienta - hachaMadera.fuerza(), RANGO_BASE);
     }
 
     @Test
